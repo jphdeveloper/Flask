@@ -1,0 +1,30 @@
+<!-- divisas.html -->
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Calculadora de Divisas</h1>
+    <p>Convierte dólares (USD) a pesos colombianos (COP).</p>
+    <form action="/divisas" method="POST">
+        
+        <div class="row">
+            <div class="col-md-6">
+                <input type="number" class="form-control" name="n1" placeholder="Ingresa la cantidad en USD" aria-label="Ingresa la cantidad en USD" required>
+            </div>
+        </div>
+        
+        <div class="row py-3">
+            <div class="col-md-12">
+                <button type="submit" class="btn btn-primary">Convertir</button>
+            </div>
+        </div>
+    </form>
+
+    {% if resultado_conversion is not none %}
+    <div class="row py-2">
+        <div class="col">
+            <h2>El resultado es: {{ resultado_conversion }} COP</h2>
+        </div>
+    </div>
+    {% endif %}
+
+{% endblock %}
