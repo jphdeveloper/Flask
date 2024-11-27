@@ -5,26 +5,30 @@
 {% endblock %}
 
 {% block contenido %}
-<div class="container my-4">
+<div class="container my-5">
     <div class="row">
         <div class="col-md-4">
-            <h3 class="h3">Agregar juego</h3>
+            <h3 class="h3 text-light">Agregar juego</h3>
             <form action="{{url_for('guardar_juego')}}" method="post">
                 <div class="mb-3">
-                    <label for="nombre" class="form-label">Nombre:</label>
+                    <label for="nombre" class="form-label text-light fw-bold">Nombre:</label>
                     <input required type="text" class="form-control" placeholder="Nombre" name="nombre" id="nombre">
                 </div>
                 <div class="mb-3">
-                    <label for="descripcion" class="form-label">Descripción:</label>
+                    <label for="descripcion" class="form-label text-light fw-bold">Descripción:</label>
                     <input required type="text" class="form-control" placeholder="Descripción" name="descripcion" id="descripcion">
                 </div>
                 <div class="mb-3">
-                    <label for="precio" class="form-label">Precio:</label>
+                    <label for="precio" class="form-label text-light fw-bold">Precio:</label>
                     <input required type="number" class="form-control" placeholder="Precio" name="precio" id="precio">
                 </div>
                 <div class="d-flex gap-2">
-                    <button type="submit" class="btn btn-success">Guardar</button>
-                    <a href="{{url_for('juegos')}}" class="btn btn-primary">Volver</a>
+                    <button type="submit" class="btn-guardar">
+                        <h6 class="fw-bold mt-2">Guardar</h6>
+                    </button>
+                    <a href="{{url_for('juegos')}}" class="btn-volver">
+                        <h6 class="fw-bold mt-2">Volver</h6>
+                    </a>
                 </div>
             </form>
         </div>

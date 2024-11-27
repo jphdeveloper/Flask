@@ -35,6 +35,35 @@ def guardar_juego():
     # De cualquier modo, y si todo fue bien, redireccionar
     return redirect("/juegos")
 
+# Ruta: eliminar_juego
+@app.route("/eliminar_juego", methods=["POST"])
+def eliminar_juego():
+    controlador_juegos.eliminar_juego(request.form["id"])
+    return redirect("/juegos")
+
+# Ruta: formulario_editar_juego
+@app.route("/formulario_editar_juego/<int:id>")
+def editar_juego(id):
+    # Obtener el juego por ID
+    juego = controlador_juegos.obtener_juego_por_id(id)
+    return render_template("editar_juego.html", juego=juego)
+
+# Ruta: actualizar_juego
+@app.route("/actualizar_juego", methods=["POST"])
+def actualizar_juego():
+    id = request.form["id"]
+    nombre = request.form["nombre"]
+    descripcion = request.form["descripcion"]
+    precio = request.form["precio"]
+    controlador_juegos.actualizar_juego(nombre, descripcion, precio, id)
+    return redirect("/juegos")
+
+@app.route("/detalles/<int:id>")
+def detalles(id):
+    # Obtener el juego por ID
+    juego = controlador_juegos.obtener_juego_por_id(id)
+    return render_template("detalles.html", juego=juego)
+
 # Iniciar el servidor para ejecutar la aplicación flask
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8000, debug=True)

@@ -1,8 +1,304 @@
+html,body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
 body {
-    font-family: 'Nunito', sans-serif;
+  font-family: 'Nunito', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+body > *:not(footer) {
+  flex: 1;
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
+}
+
+.backgd {
+    background: rgb(0,0,0);
+    background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(52,52,55,1) 36%, rgba(87,87,89,1) 70%, rgba(116,116,118,1) 100%);
+    background-size: cover; /* Asegura que el gradiente no se repita */
+    min-height: 100vh; /* Forzar que el body cubra toda la altura de la pantalla */
+    margin: 0; /* Eliminar cualquier espacio externo */
+    padding: 0;
+}
+/* body por defecto (dark mode) */
+.backgd {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(52, 52, 55, 1) 36%, rgba(87, 87, 89, 1) 70%, rgba(116, 116, 118, 1) 100%);
+  background-size: cover;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  color: white;
+  transition: background 0.5s ease, color 0.5s ease;
+}
+
+/* body en light mode */
+.light {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(245, 245, 245, 1) 36%, rgba(230, 230, 230, 1) 70%, rgba(200, 200, 200, 1) 100%);
+  color: black;
+}
+
+.navbar.bgk-1 {
+  transition: background-color 0.5s ease;
+}
+
+body.light .navbar.bgk-1 {
+  background-color: #eaeaea;
+}
+
+body.sombra-logo-2 {
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+.panel {
+    color: white;
+    transition: color 1s ease;
+}
+.panel:hover {
+    color: #94A3B8;
+}
+
+.sombra-logo {
+    -webkit-box-shadow: 0px 0px 40px -4px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 40px -4px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 40px -4px rgba(0,0,0,0.75);
+    transition: box-shadow 1s ease, transform 1s ease;
+}
+
+.sombra-logo:hover{
+    -webkit-box-shadow: 0px 0px 52px -27px rgba(255,255,255,1);
+    -moz-box-shadow: 0px 0px 52px -27px rgba(255,255,255,1);
+    box-shadow: 0px 0px 52px -27px rgba(255,255,255,1);
+    transform: scale(1.05);
+}
+
+.sombra-logo-2 {
+    -webkit-box-shadow: 10px 10px 42px 9px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 42px 9px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 42px 9px rgba(0,0,0,0.75);
+}
+
+.bgk-1 {
+    background-color: #27272A;
+}
+
+
+/* From Uiverse.io by gharsh11032000 */ 
+.button {
+  position: relative;
+  width: 64px;
+  height: 50px;
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  color: white;
+  justify-content: center;
+  border: none;
+  padding: 12px;
+  gap: 12px;
+  border-radius: 15px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  left: -4px;
+  top: -1px;
+  margin: auto;
+  width: 64px;
+  height: 50px;
+  border-radius: 15px;
+  background: linear-gradient(-45deg, #e81cff 0%, #40c9ff 100% );
+  z-index: -10;
+  pointer-events: none;
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.button::after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(-45deg, #fc00ff 0%, #00dbde 100% );
+  transform: translate3d(0, 0, 0) scale(0.95);
+  filter: blur(20px);
+}
+
+.button:hover::after {
+  filter: blur(30px);
+}
+
+.button:hover::before {
+  transform: rotate(-180deg);
+}
+
+.button:active::before {
+  scale: 0.7;
+}
+
+/*===================================================================================*/
+
+.btn-edit {
+  transition: all 0.3s ease-in-out;
+  font-family: "Dosis", sans-serif;
+}
+
+.btn-edit {
+  width: 80px;
+  height: 32px;
+  border-radius: 50px;
+  background: rgb(86,160,204);
+  background: linear-gradient(90deg, rgba(86,160,204,1) 0%, rgba(3,81,128,1) 31%, rgba(0,30,48,1) 100%);
+  box-shadow: 0px 23px 52px -15px rgba(0,0,0,0.75);
+  outline: none;
+  cursor: pointer;
+  border: none;
+  font-size: 24px;
+  color: white;
+}
+
+.btn-edit:hover {
+  transform: translateY(3px);
+  box-shadow: none;
+}
+
+.btn-edit:active {
+  opacity: 0.5;
+}
+
+
+/*===================================================================================*/
+
+/* From Uiverse.io by cssbuttons-io */ 
+.btn-eliminar {
+  transition: all 0.3s ease-in-out;
+  font-family: "Dosis", sans-serif;
+}
+
+.btn-eliminar  {
+  width: 80px;
+  height: 32px;
+  border-radius: 50px;
+  background: rgb(250,45,45);
+  background: linear-gradient(90deg, rgba(250,45,45,1) 0%, rgba(255,0,0,1) 31%, rgba(166,0,0,1) 100%);
+  box-shadow: 0px 23px 52px -15px rgba(0,0,0,0.75);
+  outline: none;
+  cursor: pointer;
+  border: none;
+  font-size: 24px;
+  color: white;
+}
+
+.btn-eliminar:hover {
+  transform: translateY(3px);
+  box-shadow: none;
+}
+
+.btn-eliminar :active {
+  opacity: 0.5;
+}
+
+
+/*===================================================================================*/
+
+/* From Uiverse.io by cssbuttons-io */ 
+.btn-guardar {
+  transition: all 0.3s ease-in-out;
+  font-family: "Dosis", sans-serif;
+}
+
+.btn-guardar  {
+  width: 90px;
+  height: 38px;
+  border-radius: 50px;
+  background: rgb(29,255,104);
+  background: linear-gradient(90deg, rgba(29,255,104,1) 0%, rgba(0,255,85,1) 31%, rgba(3,190,66,1) 100%);
+  box-shadow: 0px 23px 52px -15px rgba(0,0,0,0.75);
+  outline: none;
+  cursor: pointer;
+  border: none;
+  font-size: 24px;
+  color: white;
+}
+
+.btn-guardar:hover {
+  transform: translateY(3px);
+  box-shadow: none;
+}
+
+.btn-guardar :active {
+  opacity: 0.5;
+}
+
+
+/*===================================================================================*/
+
+/* From Uiverse.io by cssbuttons-io */ 
+.btn-volver {
+  transition: all 0.3s ease-in-out;
+  font-family: "Dosis", sans-serif;
+}
+
+.btn-volver  {
+  width: 90px;
+  height: 38px;
+  border-radius: 50px;
+  background: rgb(86,160,204);
+  background: linear-gradient(90deg, rgba(86,160,204,1) 0%, rgba(3,81,128,1) 31%, rgba(0,30,48,1) 100%);
+  box-shadow: 0px 23px 52px -15px rgba(0,0,0,0.75);
+  outline: none;
+  cursor: pointer;
+  border: none;
+  font-size: 24px;
+  color: white;
+}
+
+.btn-volver:hover {
+  transform: translateY(3px);
+  box-shadow: none;
+}
+
+.btn-volver :active {
+  opacity: 0.5;
+}
+
+/*===================================================================================*/
+
+/* From Uiverse.io by cssbuttons-io */ 
+
+.btn-detalles {
+  transition: all 0.3s ease-in-out;
+  font-family: "Dosis", sans-serif;
+}
+
+.btn-detalles  {
+  width: 80px;
+  height: 32px;
+  border-radius: 50px;
+  background: rgb(39,128,3);
+  background: linear-gradient(90deg, rgba(39,128,3,1) 0%, rgba(50,166,2,1) 35%, rgba(74,255,0,1) 100%);
+  box-shadow: 0px 23px 52px -15px rgba(0,0,0,0.75);
+  outline: none;
+  cursor: pointer;
+  border: none;
+  font-size: 24px;
+  color: white;
+}
+
+.btn-detalles:hover {
+  transform: translateY(3px);
+  box-shadow: none;
+}
+
+.btn-detalles :active {
+  opacity: 0.5;
 }
