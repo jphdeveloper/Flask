@@ -1,0 +1,31 @@
+<!---Mi alertas-->
+{% if (typeAlert==1) %}
+<div class="toast_alert active" style="background: linear-gradient(90deg, rgba(185,185,185,1) 0%, rgba(93,93,93,1) 50%, rgba(0,0,0,1) 100%);">
+    <div class="toast_alert-content">
+        <i class="bi bi-check check"></i>
+
+        <div class="message">
+            <span class="text text-1 text-light fw-bold">Felicitaciones!</span>
+            <span class="text text-2 text-light">{{ msjAlert }} <img src="{{url_for('static', filename ='assets/imgs/correcto.png')}}" width="18px"></span>
+        </div>
+    </div>
+    <i class="bi bi-x close"></i>
+    <div class="progress active"></div>
+</div>
+{% endif %}
+
+{% if(typeAlert ==0) %}
+<div class="toast_alert active" style="background: linear-gradient(90deg, rgba(159,0,0,1) 0%, rgba(0,0,0,1) 50%, rgba(0,0,0,1) 100%);">
+    <div class="toast_alert-content">
+        <i class="bi bi-check check"></i>
+
+        <div class="message">
+            <span class="text text-1 text-light fw-bold">Error <img src="{{url_for('static', filename ='assets/imgs/cerrar.png')}}" width="18px"></span>
+            <span class="text text-2 text-light">{{ msjAlert }}</span>
+        </div>
+    </div>
+    <i class="bi bi-x close"></i>
+    <div class="progress active"></div>
+</div>
+{% endif %}
+<!---Fin Alertas-->
